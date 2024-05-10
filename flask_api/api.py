@@ -1,14 +1,12 @@
 from flask import Flask, jsonify, request
-from flask_cors import CORS
-import time
-import random
+from flask_cors import CORS 
 from lambic import LAMBIC
 from lagers import LAGER
 from images import IMGS
 from beers import BEERS
 app = Flask(__name__)
 CORS(app)
-
+#WIKI DE EJEMPLO LOCAL
 wiki_estilos = [LAMBIC,LAGER]
 
 estilos = [
@@ -34275,10 +34273,7 @@ marcas = [
 
  
 @app.route('/beers', methods=['GET'])
-def cervezas(): 
-    numero_aleatorio = random.uniform(0.4, 2.5)
-    print(numero_aleatorio)
-    time.sleep(numero_aleatorio)
+def cervezas():   
     return jsonify(beers)
 
 @app.route('/beers/<string:id>', methods=['GET'])
